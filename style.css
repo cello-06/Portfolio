@@ -1,0 +1,652 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins%3Awght%40100%3B200%3B300%3B400%3B500%3B600&display=swap%27%29%3B');
+
+/* --- SETTING PARTICLES BACKGROUND --- */
+#particles-js {
+    position: fixed; /* Supaya tetap diam di layar saat scroll */
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1; /* PENTING: Taruh di belakang konten */
+    background: transparent;
+}
+
+/* --- GLOBAL STYLE --- */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    border: none;
+    outline: none;
+    font-family: 'Poppins', sans-serif;
+}
+
+html{
+    font-size: 62.5%;
+    scroll-behavior: smooth;
+    scroll-padding-top: 8rem;
+}
+
+body{
+    width: 100%;
+    min-height: 100vh;
+    overflow-x: hidden;
+    background: linear-gradient(90deg, #5de0e6 0%, #004aad 100%);
+    background-attachment: fixed; 
+    color: white;
+}
+
+/* --- HEADER / NAVBAR --- */
+header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 2rem 9%;
+    background-color: rgba(0, 0, 0, 0.1); 
+    backdrop-filter: blur(5px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+}
+
+.logo{
+    font-size: 3rem;
+    color: #fff7ad;
+    font-weight: 800;
+    cursor: pointer;
+    transition: 0.5s ease;
+}
+
+.logo:hover{
+    transform: scale(1.1);
+}
+
+nav a{
+    font-size: 1.8rem;
+    color: white;
+    margin-left: 3rem; 
+    font-weight: 500;
+    transition: 0.3s ease;
+    border-bottom: 3px solid transparent;
+}
+
+nav a:hover,
+nav a.active{
+    color: #fff7ad;
+    border-bottom: 3px solid #fff7ad;
+}
+
+/* --- SECTION UMUM --- */
+section{
+    min-height: 100vh;
+    padding: 12rem 9% 5rem;
+}
+
+/* --- HALAMAN HOME --- */
+.home{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8rem;
+}
+
+.home .home-content h1{
+    font-size: 6rem;
+    font-weight: 700;
+    line-height: 1.3;
+}
+
+span{
+    color: #fff7ad;
+}
+
+.home-content h3{
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+.home-content p{
+    font-size: 1.6rem;
+    margin-bottom: 3rem;
+}
+
+.home-img {
+    position: relative;
+}
+
+.home-img img{
+    position: relative;
+    width: 25vw;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.animated-ring {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2; /* SVG di atas foto */
+    pointer-events: none; /* Agar klik tembus ke foto di bawahnya */
+    transform: rotate(-90deg); /* Mulai animasi dari atas tengah */
+    overflow: visible;
+}
+
+/* DEFINISI ANIMASI GARIS BERJALAN */
+@keyframes moveDashes {
+    to {
+        /* Menggeser offset garis. Nilai negatif agar bergerak searah jarum jam. 
+           Nilai ini harus cukup besar agar terlihat mulus (kira-kira kelipatan dari total dasharray) */
+        stroke-dashoffset: -220; 
+    }
+}
+
+/* --- EFEK HOVER --- */
+.home-img:hover img {
+    transform: scale(1.05);
+    box-shadow: 0 0 70px 30px rgba(255, 247, 173, 0.4);
+}
+
+.animated-ring ellipse {
+    fill: none; 
+    stroke: #fff7ad; 
+    stroke-width: 4; 
+    stroke-linecap: round; 
+    
+    /* Garis putus-putus */
+    stroke-dasharray: 20 35; 
+    
+    /* Animasi */
+    animation: moveDashes 4s linear infinite;
+    
+    transition: 0.3s ease;
+    opacity: 0.8;
+    filter: drop-shadow(0 0 5px #fff7ad); 
+}
+
+/* Update juga bagian hovernya */
+.home-img:hover .animated-ring ellipse {
+    stroke: #004aad; 
+    animation-duration: 1s; 
+    stroke-width: 6; 
+    filter: drop-shadow(0 0 15px #004aad);
+}
+
+.social-icons a{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 4rem;
+    height: 4rem;
+    background-color: transparent;
+    border: 0.2rem solid #fff7ad;
+    font-size: 2rem;
+    border-radius: 50%;
+    margin: 0 1.5rem 3rem 0;
+    transition: 0.3s ease;
+    color: #fff7ad;
+}
+
+.social-icons a:hover{
+    color: #004aad;
+    transform: scale(1.3) translateY(-5px);
+    background-color: #fff7ad;
+    box-shadow: 0 0 25px #fff7ad;
+}
+
+.btn{
+    display: inline-block;
+    padding: 1rem 2.8rem;
+    background-color: transparent;
+    border-radius: 4rem;
+    font-size: 1.6rem;
+    color: #fff7ad;
+    letter-spacing: 0.3rem;
+    font-weight: 600;
+    border: 2px solid #fff7ad;
+    transition: 0.3s ease;
+    cursor: pointer;
+}
+
+.btn:hover{
+    transform: scale3d(1.03);
+    background-color: #fff7ad;
+    color: #004aad;
+    box-shadow: 0 0 25px #fff7ad;
+}
+
+/* --- ANIMASI TYPING (REVISI FINAL: KURSOR KELAP-KELIP) --- */
+.typing-text {
+    font-size: 34px;
+    font-weight: 600;
+    
+    /* Layout */
+    display: inline-flex; 
+    gap: 10px; 
+    white-space: nowrap; 
+    align-items: baseline; 
+}
+
+.typing-text span {
+    position: relative;
+    color: #fff7ad;
+    
+    /* Kursor (Garis Kanan) */
+    border-right: 3px solid #fff7ad; 
+    
+    /* Layout Animasi */
+    display: block; 
+    overflow: hidden; 
+    width: 0;
+    
+    /* GABUNGKAN 2 ANIMASI: 
+       1. typing: ngetik teks (4 detik)
+       2. blink: kursor kedip-kedip (0.8 detik) 
+    */
+    animation: typing 4s steps(30) infinite, blink 0.8s step-end infinite; 
+}
+
+.typing-text span::before {
+    content: "Data Analyst Enthusiast"; 
+    color: #fff7ad;
+    animation: words 20s infinite;
+}
+
+/* --- KEYFRAMES --- */
+
+/* 1. Animasi Ngetik & Hapus */
+@keyframes typing {
+    0% { width: 0; }
+    40% { width: 100%; } /* Ngetik sampai ujung */
+    60% { width: 100%; } /* Diam sebentar */
+    100% { width: 0; }   /* Hapus */
+}
+
+/* 2. Animasi Kursor Kedip-Kedip (INI YANG BARU) */
+@keyframes blink {
+    0%, 100% { border-color: #fff7ad; } /* Muncul */
+    50% { border-color: transparent; }  /* Hilang */
+}
+
+/* 3. Ganti-ganti Kata */
+@keyframes words {
+    0%, 20% { content: "Data Analyst Enthusiast"; }
+    21%, 40% { content: "System Analyst"; }
+    41%, 60% { content: "UI/UX Enthusiast"; }
+    61%, 80% { content: "Business Analyst"; }
+    81%, 100% { content: "Digital Business Student"; }
+}
+
+/* --- HEADING STYLE --- */
+.heading{
+    text-align: center;
+    font-size: 5rem;
+    margin-bottom: 3rem;
+    color: white;
+}
+.heading span{
+    color: #fff7ad;
+}
+
+/* --- SKILLS SECTION --- */
+.skills-container{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: start;
+    gap: 2.5rem;
+}
+
+.skills-box{
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: .2rem solid #fff7ad;
+    border-radius: 2rem;
+    padding: 3rem 2rem 4rem;
+    transition: .5s ease;
+}
+
+.skills-box:hover{
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 20px #fff7ad;
+    transform: scale(1.02);
+}
+
+.skills-box .title{
+    font-size: 2.4rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    color: #fff7ad;
+    font-weight: 700;
+}
+
+.skills-content{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    justify-content: center;
+}
+
+.skill-item{
+    flex: 1 1 8rem;
+    text-align: center;
+    padding: 1rem;
+    border: 1px solid rgba(255, 247, 173, 0.3);
+    border-radius: 1rem;
+    transition: .3s;
+}
+
+.skill-item:hover{
+    border-color: #fff7ad;
+    background: rgba(255, 247, 173, 0.1);
+}
+
+.skill-item i{
+    font-size: 4rem;
+    color: #fff7ad;
+    margin-bottom: 0.5rem;
+}
+
+.skill-item h3{
+    font-size: 1.4rem;
+    color: white;
+    font-weight: 500;
+}
+
+.bar-content{
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.progress h3{
+    font-size: 1.7rem;
+    display: flex;
+    justify-content: space-between;
+    color: white;
+    font-weight: 500;
+}
+
+.progress h3 span{
+    color: #fff7ad;
+}
+
+.bar{
+    height: 1.5rem;
+    border-radius: 1rem;
+    border: 1px solid #fff7ad;
+    padding: .3rem;
+    margin-top: 1rem;
+}
+
+.bar span{
+    display: block;
+    height: 100%;
+    border-radius: 1rem;
+    background: #fff7ad;
+    width: 0%;
+    animation: fillBar 2s forwards;
+}
+
+@keyframes fillBar{
+    to{ width: var(--i); }
+}
+
+/* --- SECTION EDUCATION, EXPERIENCE, PROJECT, CONTACT (SHARED) --- */
+.education-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 3rem;
+}
+
+.education-box {
+    flex: 1 1 40rem;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: .2rem solid #fff7ad;
+    border-radius: 2rem;
+    padding: 3rem 2rem 4rem;
+    text-align: center;
+    transition: .5s ease;
+}
+
+.education-box:hover {
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 20px #fff7ad;
+    transform: scale(1.02);
+}
+
+.education-box i {
+    font-size: 5rem;
+    color: #fff7ad;
+    display: block; 
+    margin: 0 auto 2rem auto; 
+}
+
+.education-box .year {
+    font-size: 1.6rem;
+    color: #fff7ad;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    padding: 0.5rem 1.5rem;
+    border: 1px solid #fff7ad;
+    display: inline-block;
+    border-radius: 2rem;
+}
+
+.education-box h3 {
+    font-size: 2.4rem;
+    margin: 1.5rem 0;
+    font-weight: 700;
+}
+
+.education-box p {
+    font-size: 1.6rem;
+    margin-bottom: 0.5rem;
+}
+
+.experience-list {
+    text-align: left; 
+    padding-left: 2rem; 
+    margin-top: 2rem;
+}
+
+.experience-list li {
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
+    line-height: 1.5;
+}
+
+/* --- PROJECTS GRID SYSTEM --- */
+.projects-grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); 
+    gap: 3rem;
+    padding-bottom: 3rem;
+}
+
+.project-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 1.5rem;
+    overflow: hidden;
+    transition: 0.4s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-10px);
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    border-color: #fff7ad;
+}
+
+.card-img {
+    width: 100%;
+    height: 220px;
+    overflow: hidden;
+}
+
+.card-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: 0.5s;
+}
+
+.project-card:hover .card-img img {
+    transform: scale(1.1);
+}
+
+.card-info {
+    padding: 2.5rem;
+    text-align: left;
+}
+
+.card-info h3 {
+    font-size: 2.2rem;
+    margin-bottom: 1rem;
+    color: white;
+    font-weight: 700;
+}
+
+.card-info p {
+    font-size: 1.4rem;
+    color: #ddd;
+    margin-bottom: 2rem;
+    line-height: 1.6;
+}
+
+.tech-stack {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 2.5rem;
+}
+
+.tech-stack span {
+    font-size: 1.2rem;
+    background: rgba(255, 247, 173, 0.15);
+    color: #fff7ad;
+    padding: 0.5rem 1.2rem;
+    border-radius: 2rem;
+    border: 1px solid rgba(255, 247, 173, 0.3);
+}
+
+.card-btns {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.btn-sm {
+    padding: 0.8rem 2rem;
+    background: transparent;
+    border: 1px solid #fff7ad;
+    color: #fff7ad;
+    border-radius: 0.5rem;
+    font-size: 1.3rem;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.btn-sm:hover {
+    background: #fff7ad;
+    color: #004aad;
+    box-shadow: 0 0 10px #fff7ad;
+}
+
+/* --- CONTACT SECTION STYLE --- */
+.contact-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.contact-item i {
+    font-size: 2.4rem;
+    color: #fff7ad;
+    margin: 0 !important;
+    display: inline-block !important;
+}
+
+.contact-item p {
+    font-size: 1.6rem;
+    margin: 0;
+    color: white;
+}
+
+/* --- RESPONSIVE MEDIA QUERIES --- */
+@media (max-width: 1000px){
+    .home{
+        gap: 4rem;
+    }
+}
+
+@media(max-width:995px){
+    nav{
+        position: absolute;
+        display: none;
+        top: 0;
+        right: 0;
+        width: 60%; 
+        border-left: 3px solid #fff7ad;
+        border-bottom: 3px solid #fff7ad;
+        border-bottom-left-radius: 2rem;
+        padding: 1rem solid;
+        background-color: #004aad; 
+        border-top: 0.1rem solid rgba(0,0,0,0.1);
+    }
+
+    nav.active{
+        display: block;
+    }
+
+    nav a{
+        display: block;
+        font-size: 2rem;
+        margin: 3rem;
+    }
+
+    nav a:hover,
+    nav a.active{
+        padding: 1rem;
+        border-radius: 0.5rem;
+        border-bottom: 0.5rem solid #fff7ad;
+    }
+
+    .home{
+        flex-direction: column;
+        margin: 5rem 4rem;
+        text-align: center;
+    }
+
+    .home .home-content h3{
+        font-size: 2.5rem;
+    }
+
+    .home-content h1{
+        font-size: 5rem;
+    }
+
+    .home-img img{
+        width: 70vw;
+        margin-top: 4rem;
+    }
+    
+    .typing-text{
+        min-width: auto;
+    }
+
+    .skills-container, .education-container, .projects-grid-container {
+        grid-template-columns: 1fr;
+        flex-direction: column;
+    }
+}

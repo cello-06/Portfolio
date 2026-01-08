@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <title>All Journals - Marcello Setiawan</title> 
+</head>
+<body>
+    
+    <div id="particles-js"></div>
+
+    <header>
+        <a href="index.html" class="logo">Marcello Setiawan</a>
+        <nav>
+            <a href="index.html" class="btn" style="padding: 0.5rem 2rem; font-size: 1.4rem;">Back to Home</a>
+        </nav>
+    </header>
+
+    <section class="all-projects">
+        <h2 class="heading">All <span>Journals</span></h2>
+        <p style="text-align: center; font-size: 1.6rem; margin-bottom: 4rem; color: #ddd;">
+            Curious about what I've been researching? Here are all my journals.
+        </p>
+
+        <div class="projects-grid-container">
+            
+            <div class="project-card">
+                <div class="card-img">
+                    <img src="BI.jpg" alt="">
+                </div>
+                <div class="card-info">
+                    <h3>Brand Image, Perceived Value, System Quality, E-Satisfaction, E-Loyalty</h3>
+                    <p>This research paper investigates the impact of brand image, perceived value, and system quality on e-satisfaction and their subsequent effect on e-loyalty within the e-commerce industry, based on a quantitative survey of 244 users in Bandung. Using a Partial Least Squares (PLS) analysis, the study reveals that all three independent variables significantly influence e-satisfaction, with perceived value demonstrating the strongest effect. The findings highlight that e-satisfaction serves as a critical mediator with a highly significant direct impact on e-loyalty, suggesting that e-commerce platforms must integrate improvements in system quality, value perception, and brand image to foster long-term customer commitment.</p>
+                    <div class="tech-stack">
+                        <span>Business Analytics</span><span>Quantitive Research</span><span>SmartPLS</span><span>E-Commerce</span><span>Data Analysis</span>
+                    </div>
+                    <div class="card-btns">
+                        <a href="Brand Image, Perceived Value, System Quality, E-Satisfaction, E-Loyalty.pdf" target="_blank" class="btn-sm">Read More</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="card-img">
+                    <img src="PetService.jpg" alt="">
+                </div>
+                <div class="card-info">
+                    <h3>Pet Care Services on Demand: A Mobile App for Scheduling Veterinary and Grooming Services</h3>
+                    <p>This paper proposes a mobile application solution to streamline pet care services, specifically veterinary consultations and grooming, by addressing inefficiencies in traditional manual booking systems. Utilizing the Double Diamond design methodology, the study outlines the development of an on-demand platform featuring automated scheduling, real-time notifications, and secure digital payment integration to enhance user experience and operational efficiency. The research highlights the growing digital transformation in the pet industry and demonstrates how a user-centered, integrated mobile solution can effectively connect pet owners with service providers, offering a scalable business model for the future of digital pet care.</p>
+                    <div class="tech-stack">
+                        <span>Mobile Application</span><span>UI/UX Design</span><span>System Design</span><span>Digital Innovation</span><span>Double Diamond Method</span>
+                    </div>
+                    <div class="card-btns">
+                        <a href="Pet Care Services on Demand A Mobile App for Scheduling Veterinary and Grooming Services.pdf" target="_blank" class="btn-sm">Read More</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="card-img">
+                    <img src="Catering.jpg" alt="">
+                </div>
+                <div class="card-info">
+                    <h3>Ensuring Convenience and Safety: The Role of Mobile Catering Apps in Modern Food Delivery in Indonesia</h3>
+                    <p>This paper explores the development of a mobile catering application designed to modernize the food delivery industry in Indonesia by replacing inefficient manual booking processes with a digital solution that prioritizes both convenience and safety. Utilizing the Double Diamond design methodology, the study outlines the creation of a comprehensive platform featuring seamless ordering, real-time tracking, and contactless payments to address post-pandemic consumer demands. Through detailed system architecture visualizations including Use Case, Data Flow, and Entity Relationship diagrams, the research demonstrates how integrating user-friendly features with strict safety protocols can significantly enhance customer satisfaction and operational efficiency for service providers.</p>
+                    <div class="tech-stack">
+                        <span>Mobile App Development</span><span>UI/UX Design</span><span>System Design</span><span>Design Thinking</span><span>Digital Transformation</span>
+                    </div>
+                    <div class="card-btns">
+                        <a href="Ensuring Convenience and Safety The Role of Mobile Catering Apps in Modern Food Delivery in Indonesia.pdf" target="_blank" class="btn-sm">Read More</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+
+    <script>
+        const sr = ScrollReveal({
+            distance: '80px',
+            duration: 2000,
+            delay: 200,
+            reset: true, 
+            viewOffset: { top: -2000, bottom: 0 } // Sama kayak di Index
+        });
+
+        sr.reveal('.heading', { origin: 'top' });
+        sr.reveal('.projects-grid-container .project-card', { origin: 'bottom', interval: 200 });
+    </script>
+
+    <script>
+        particlesJS("particles-js", {
+            "particles": {
+                "number": { "value": 100, "density": { "enable": true, "value_area": 800 } },
+                "color": { "value": "#ffffff" },
+                "shape": { "type": "circle" },
+                "opacity": { "value": 0.5, "random": false },
+                "size": { "value": 3, "random": true },
+                "line_linked": {
+                    "enable": true,
+                    "distance": 150,
+                    "color": "#ffffff",
+                    "opacity": 0.4,
+                    "width": 1
+                },
+                "move": {
+                    "enable": true,
+                    "speed": 2,
+                    "direction": "none",
+                    "random": false,
+                    "straight": false,
+                    "out_mode": "out",
+                    "bounce": false
+                }
+            },
+            "interactivity": {
+                "detect_on": "window",
+                "events": {
+                    "onhover": { "enable": true, "mode": "grab" },
+                    "onclick": { "enable": true, "mode": "push" },
+                    "resize": true
+                },
+                "modes": {
+                    "grab": { "distance": 140, "line_linked": { "opacity": 1 } }
+                }
+            },
+            "retina_detect": true
+        });
+    </script>
+
+</body>
+</html>
