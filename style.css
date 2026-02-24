@@ -455,6 +455,8 @@ span{
     text-align: left; 
     padding-left: 2rem; 
     margin-top: 2rem;
+    width: fit-content;   /* Membuat lebar list menyesuaikan panjang teks */
+    margin-inline: auto;
 }
 
 .experience-list li {

@@ -1,0 +1,46 @@
+UNF
+CustomerID, CustomerName, CustomerEmail, TransactionID, TransactionDate, ProductID, ProductName, Quantity, ProductPrice, ProductTypeID, ProductTypeName, Total, Tax, StaffID, StaffName, StaffGender
+
+1NF (Buang kalkulasi & pisahkan table berulang/repeating group)
+
+TransactionID(PK), TransactionDate, CustomerID, CustomerName, CustomerEmail, CustomerGender, CustomerPhoneNumber 
+[ProductID(PK), ProductName, Quantity, ProductPrice, ProductTypeID, ProductTypeName], 
+StaffID, StaffName, StaffGender
+
+
+2NF -> Remove Functional Dependency (bergantung pada Primary key)
+
+Table 1 : TransactionID(PK), TransactionDate, CustomerID, CustomerName, CustomerEmail,CustomerGender, CustomerPhoneNumber, StaffID, StaffName, StaffGender
+
+Table 2 : ProductID(PK) ProductName, ProductPrice, ProductTypeID, ProductTypeName 
+
+Table 3 : TransactionID(PK)(FK) ProductID (PK)(FK),  Quantity
+
+
+3NF -> Remove Transitive Dependecy (non key yang bergantung pada nonkey)
+
+Table 1 : TransactionID(PK), TransactionDate, CustomerID(FK), StaffID (FK) 
+
+Table 2 : ProductID(PK) ProductName, ProductPrice, ProductTypeID (FK) 
+
+Table 3 : TransactionID(PK)(FK) ProductID (PK)(FK),  Quantity
+
+Table 4 : CustomerID(PK), CustomerName, CustomerEmail, CustomerGender, CustomerPhoneNumber 
+
+Table 5 : StaffID (PK), StaffName, StaffGender
+
+Table 6 : ProductTypeID(PK), ProductTypeName 
+
+Final 
+
+TransactionHeader : TransactionID(PK), TransactionDate, CustomerID(FK), StaffID (FK) 
+
+Product : ProductID(PK) ProductName, ProductPrice, ProductTypeID (FK) 
+
+TransactionDetail : TransactionID(PK)(FK) ProductID(PK)(FK),  Quantity
+
+Customer : CustomerID(PK), CustomerName, CustomerEmail, CustomerGender, CustomerPhoneNumber
+
+Staff : StaffID(PK), StaffName, StaffGender
+
+ProductType : ProductTypeID(PK), ProductTypeName 
