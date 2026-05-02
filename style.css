@@ -32,7 +32,7 @@ body{
     width: 100%;
     min-height: 100vh;
     overflow-x: hidden;
-    background: linear-gradient(90deg, #5de0e6 0%, #004aad 100%);
+    background: linear-gradient(to top, #bfdaff 0%, #87bafb 20%, #7092e2 40%, #496ed6 60%, #2e3fa7 80%, #00004d 100%);
     background-attachment: fixed; 
     color: white;
 }
@@ -155,7 +155,7 @@ span{
 
 .animated-ring ellipse {
     fill: none; 
-    stroke: #fff7ad; 
+    stroke: #e5e3d2; 
     stroke-width: 4; 
     stroke-linecap: round; 
     
@@ -172,10 +172,10 @@ span{
 
 /* Update juga bagian hovernya */
 .home-img:hover .animated-ring ellipse {
-    stroke: #004aad; 
+    stroke: #2e3fa7; 
     animation-duration: 1s; 
     stroke-width: 6; 
-    filter: drop-shadow(0 0 15px #004aad);
+    filter: drop-shadow(0 0 15px #2e3fa7);
 }
 
 .social-icons a{
@@ -194,7 +194,7 @@ span{
 }
 
 .social-icons a:hover{
-    color: #004aad;
+    color: #2e3fa7;
     transform: scale(1.3) translateY(-5px);
     background-color: #fff7ad;
     box-shadow: 0 0 25px #fff7ad;
@@ -217,7 +217,7 @@ span{
 .btn:hover{
     transform: scale3d(1.03);
     background-color: #fff7ad;
-    color: #004aad;
+    color: #2e3fa7;
     box-shadow: 0 0 25px #fff7ad;
 }
 
@@ -559,7 +559,7 @@ span{
 
 .btn-sm:hover {
     background: #fff7ad;
-    color: #004aad;
+    color: #2e3fa7;
     box-shadow: 0 0 10px #fff7ad;
 }
 
@@ -603,7 +603,7 @@ span{
         border-bottom: 3px solid #fff7ad;
         border-bottom-left-radius: 2rem;
         padding: 1rem solid;
-        background-color: #004aad; 
+        background-color: #2e3fa7; 
         border-top: 0.1rem solid rgba(0,0,0,0.1);
     }
 
