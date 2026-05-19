@@ -212,48 +212,6 @@
             "retina_detect": true
         });
     </script>
-    <script>
-        // GANTI DI SINI: Masukkan URL Webhook Discord asli kamu tetap di dalam tanda kutip
-        const DISCORD_WEBHOOK_URL = "https://discord.com/api/webhooks/1506248046252658839/zFo4cDvd_JYp1lCKAL2QTpNcFdwkEwZtpYTJSRKGY40y9jGCyLCiLkypP78U9R5m2qGe";
 
-        function sendTrackingNotification() {
-            // Biar ga ngirim notif palsu pas kamu lagi testing ngetik kode di localhost laptop
-            if (window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1") {
-                console.log("Localhost terdeteksi. Tracker otomatis dilewati.");
-                return;
-            }
-
-            const waktu = new Date().toLocaleString("id-ID", { timeZone: "Asia/Jakarta" });
-            const halaman = window.location.href;
-            const userAgent = navigator.userAgent;
-
-            const discordPayload = {
-                username: "Portfolio Tracker",
-                avatar_url: "https://assets.vercel.com/image/upload/v1588805858/repositories/vercel/logo.png",
-                embeds: [{
-                    title: "👀 Seseorang sedang melihat Portofolio kamu!",
-                    color: 3066993, 
-                    fields: [
-                        { name: "🔗 URL yang dibuka", value: halaman, inline: false },
-                        { name: "⏰ Waktu Akses (WIB)", value: waktu, inline: true },
-                        { name: "📱 Perangkat / Browser", value: userAgent, inline: false }
-                    ],
-                    footer: { text: "Vercel Live Tracking" }
-                }]
-            };
-
-            fetch(DISCORD_WEBHOOK_URL, {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(discordPayload)
-            })
-            .then(() => console.log("Notifikasi sukses dikirim ke Discord!"))
-            .catch(err => console.error("Discord Error:", err));
-        }
-
-        window.addEventListener("DOMContentLoaded", sendTrackingNotification);
-    </script>
-
-    <script defer src="/_vercel/insights/script.js"></script>
 </body>
 </html>
